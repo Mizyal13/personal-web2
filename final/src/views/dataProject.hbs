@@ -1,0 +1,168 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <title>database</title>
+  </head>
+  <body class="bg-gray-800">
+    <button id="togglesidebar" class="absolute z-30 m-4">
+      <img src="../assets/img/icon/side.png" width="35" alt="" />
+    </button>
+    <div class="flex text-white text-sm">
+      <!-- sidebar -->
+      <div
+        id="sidebar"
+        class="w-1/5 h-screen bg-gray-900 flex justify-center fixed z-20 transition-all duration-300"
+      >
+        <nav>
+          <img
+            class="w-32 h-32 rounded-full mt-6 mb-5 border-2 border-white hover:scale-125"
+            src="../assets/img/profil.JPG"
+            alt=""
+          />
+          {{#if userData}}
+            <span class="ms-2">Welcome {{userData}}</span>
+          {{/if}}
+          <div class="data border-2 border-white absolute -ms-14 mt-10">
+            <span class="text-base flex m-4 pl-5">
+              <img
+                src="../assets/img/dasboard/db.png"
+                class="w-5 mx-2"
+                alt=""
+              />
+              DATABASE
+              <img
+                src="../assets/img/dasboard/db.png"
+                class="w-5 mx-2"
+                alt=""
+              /></span>
+            <hr />
+            <ul class="my-2">
+              <li class="hover:bg-gray-600 pl-10 py-5"><a
+                  class="flex"
+                  href="/dataTech"
+                ><img
+                    src="../assets/img/dasboard/tech.png"
+                    class="w-5 mr-3"
+                    alt=""
+                  />
+                  Tech Stack
+                </a></li>
+              <li class="hover:bg-gray-600 pl-10 py-5"><a
+                  class="flex"
+                  href="/dataExp"
+                ><img
+                    src="../assets/img/dasboard/exp.png"
+                    class="w-5 mr-3"
+                    alt=""
+                  />
+                  Experiences
+                </a></li>
+              <li class="hover:bg-gray-600 pl-10 py-5 bg-gray-800"><a
+                  class="flex"
+                  href="/dataProject"
+                ><img
+                    src="../assets/img/dasboard/project.png"
+                    class="w-5 mr-3"
+                    alt=""
+                  />
+                  Projects =>
+                </a></li>
+            </ul>
+          </div>
+          <form class="flex items-end h-2/3 mt-5" action="">
+            <a
+              class="flex hover:scale-110 hover:text-red-600"
+              href="/final/logout"
+            ><img
+                class="mr-2 w-5"
+                src="../assets/img/dasboard/out.png"
+                alt=""
+              />
+              LOG OUT</a></form>
+        </nav>
+      </div>
+      <!-- mainbar -->
+      <div class="mx-8 overflow-hidden">
+        <h1 class="text-center text-3xl mb-16 mt-10 font-bold">
+          DATABASE PROJECTS</h1>
+        <button
+          type="submit"
+          class="bg-gray-900 border-1 border-white px-3 py-2 rounded-md hover:text-blue-700"
+        ><a href="/dataProject/create/">Create Project</a></button>
+        <div class="mt-10 mx-auto mb-10 w-full overflow-x-auto">
+          <table class="min-w-full text-white">
+            <thead class="border border-white bg-gray-800">
+              <tr>
+                <th class="py-4 px-2 border border-white">ID</th>
+                <th class="py-4 px-16 border border-white">Name</th>
+                <th class="py-4 px-32 border border-white">Description</th>
+                <th class="py-4 px-18 border border-white">Tech</th>
+                <th class="py-4 px-24 border border-white">Image</th>
+                <th class="py-4 px-24 border border-white">GitHub</th>
+                <th class="py-4 px-24 border border-white">Action</th>
+              </tr>
+            </thead>
+            <tbody class="bg-gray-700 border border-white">
+              {{#each tb_projects}}
+                <tr>
+                  <td
+                    class="border border-white text-center"
+                  >{{id_project}}</td>
+                  <td
+                    class="border border-white text-center"
+                  >{{name_project}}</td>
+                  <td
+                    class="border border-white text-center"
+                  >{{desc_project}}</td>
+                  <td
+                    class="border border-white text-center"
+                  >{{tech_project}}</td>
+                  <td class="border border-white">
+                    <img
+                      src="/assets/uploads/{{img_project}}"
+                      class="w-8 mx-auto my-2"
+                      alt=""
+                    />
+                  </td>
+                  <td
+                    class="border border-white text-center"
+                  >{{github_project}}</td>
+                  <td class="border border-white text-center">
+                    <div class="flex justify-center items-center gap-2">
+                      <a href="/dataProject/edit/{{id_project}}">
+                        <button
+                          class="px-7 py-1 rounded-lg border border-gray-400 hover:text-blue-600"
+                        >
+                          Edit
+                        </button>
+                      </a>
+                      <form
+                        action="/dataproject/delete/{{id_project}}"
+                        method="post"
+                      >
+                        <button
+                          type="submit"
+                          class="bg-gray-900 px-5 py-1 rounded-lg border border-gray-400 hover:text-red-600"
+                        >
+                          Delete
+                        </button>
+                      </form>
+                    </div>
+                  </td>
+                </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <script src="../assets/js/sidebar.js"></script>
+  </body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <title>editExperiences</title>
+  </head>
+  <body class="bg-gray-800">
+    <div class="flex text-white text-sm relative" > 
+                <!-- sidebar -->
+
+                <!-- mainbar -->
+                <div class="mx-auto">
+                  <a href="" class="absolute top-0 right-0 m-5 text-center"><img src="../assets/img/dasboard/mode.png" class="w-10"  alt="">Light</a>
+                  <h1 class="ml-46 text-2xl mb-16 mt-10 font-bold"> EDIT PROJECT</h1>
+                   <form action="/dataProject/edit/{{projects.id_project}}" method="post" enctype="multipart/form-data" class="bg-gray-600 w-[360px] p-5 border-2 border-white rounded-xl text-md ms-25">
+                    <label class="font-bold" for="name_project">Name Project</label><br>
+                    <input class="border-1 border-white mt-1 mb-3 w-78 py-1 px-2 hover:bg-gray-900" type="text" name="name_project" id="name_project" value="{{projects.name_project}}" required><br>
+                    <label class="font-bold" for="desc_project">Description Project</label><br>
+                    <textarea rows="4" class="border-1 border-white mt-1 mb-3 w-78 py-1 px-2 hover:bg-gray-900" type="text" name="desc_project" id="desc_project" required> {{projects.desc_project}} </textarea><br>
+                    <label class="font-bold" for="tech_project">Tech Project</label><br>
+                    <input placeholder="tambah koma(,) untuk beberapa data" class="border-1 border-white mt-1 mb-3 w-78 py-1 px-2 hover:bg-gray-900" type="text" name="tech_project" id="tech_project" value="{{projects.tech_project}}" required><br>
+                    <label>Default Image</label> 
+                    <img class="py-1" src="/assets/uploads/{{projects.img_project}}" alt="image project" width="100">
+                    <label class="font-bold" for="img_project">Image</label> <br>
+                    <input class="border-1 border-white mt-1 mb-5 py-1 px-2 hover:bg-gray-900" type="file" name="img_project" id="img_project" accept="img_project/*"> <br>
+                    <input type="hidden" name="old_imgProject" value="{{projects.img_project}}">
+                    <label class="font-bold" for="github_project">GitHub Project</label><br>
+                    <input class="border-1 border-white mt-1 mb-3 w-78 py-1 px-2 hover:bg-gray-900" type="text" name="github_project" id="github_project" value="{{projects.github_project}}" required><br>
+                  <button type="submit" class=" bg-gray-900 border-1 border-white px-2 py-1 rounded-md hover:text-blue-700">Save Project</button>
+                  </form>
+                  
+          </div>
+      </div>
+    </div>
+    <script src="../assets/js/tech.js"></script>
+  </body>
+</html>

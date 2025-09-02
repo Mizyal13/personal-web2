@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <title>editExperiences</title>
+  </head>
+  <body class="bg-gray-800">
+    <div class=" text-white text-sm" > 
+                <div class=" ml-40">
+                  <h1 class="text-center mr-70 text-2xl mb-16 mt-10 font-bold  "> EDIT EXPERIENCES</h1>
+                  <form action="/dataExp/edit/{{exp.id_exp}}" method="post" enctype="multipart/form-data" class="bg-gray-600 p-5 border-2 border-white rounded-xl text-md ms-44 w-[600px]">
+                    <label class="font-bold text-base" for="comp_exp">Company name :</label>
+                    <input class="border-1 border-white ml-5 mt-1 mb-3 w-78 py-1 px-2 hover:bg-gray-900" type="text" name="comp_exp" id="comp_exp" value="{{exp.comp_exp}}" required><br>
+                    <label class="font-bold text-base" for="dept_exp">Position :</label>
+                    <input class="border-1 border-white ml-20 mt-1 mb-3 w-78 py-1 px-2 hover:bg-gray-900" type="text" name="dept_exp" id="dept_exp" value="{{exp.dept_exp}}" required><br>
+                    <label class="font-bold text-base" for="job_exp">Job Description :</label>
+                    <textarea placeholder="tambah koma(,) di akhir untuk beberapa data" rows="4"  class="border-1 border-white ms-5 mt-1 mb-3 w-78 py-1 px-2 hover:bg-gray-900" type="text" name="job_exp" id="job_exp" required>{{exp.job_exp}} </textarea><br>
+                    <label class="font-bold text-base" for="tech_exp">Tools and Tech :</label>
+                    <input placeholder="tambah koma(,) untuk beberapa data" class="border-1 border-white ml-7 mt-1 mb-3 w-78 py-1 px-2 hover:bg-gray-900" type="text" name="tech_exp" id="tech_exp" value="{{exp.tech_exp}}" required><br>
+                    <label class="font-bold text-base" for="start_exp">Start Date :</label>
+                    <input class="border-1 border-white ml-16 mt-1 mb-3 w-78 py-1 px-2 hover:bg-gray-900" type="date" name="start_exp" id="start_exp" value="{{exp.start_exp}}" required><br>
+                    <label class="font-bold text-base" for="end_exp">End Date :</label>
+                    <input class="border-1 border-white ms-18 mt-1 mb-3 w-78 py-1 px-2 hover:bg-gray-900" type="date" name="end_exp" id="end_exp" value="{{exp.end_exp}}" required><br>
+                    <label>default image</label><br>
+                    <img src="/assets/uploads/{{exp.img_exp}}" alt="default image" width="100">
+                    <label class="font-bold text-base" for="img_exp">change image</label>
+                    <input class="border-1 border-white ml-14 mt-1 mb-5 py-1 px-2 hover:bg-gray-900" type="file" name="img_exp" id="img_exp" accept="img_exp/*"> <br>
+                    <input type="hidden" name="old_img" value="{{exp.img_exp}}">
+                  <button type="submit" class=" bg-gray-900 border-1 border-white px-6 py-1 rounded-md hover:text-blue-700 ">Save</button>
+                  </form>
+                  
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
