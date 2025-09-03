@@ -66,5 +66,6 @@ app.use("/auth", authRouter);
 // Root redirect
 app.get("/", (req, res) => res.redirect("/tech"));
 
-// Serverless export
+// ❌ Jangan ada app.listen()
+// ✅ Export untuk serverless Vercel
 export default app;
