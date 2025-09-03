@@ -1,19 +1,17 @@
 {
   "name": "final",
   "version": "1.0.0",
-  "main": "app.js",
-  "scripts": {
-    "start": "node app.js"
-  },
+  "main": "api/app.js",
   "type": "module",
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
+  "scripts": {
+    "start": "node api/app.js",
+    "dev": "nodemon api/app.js"
+  },
   "dependencies": {
     "aws-sdk": "^2.1691.0",
     "bcrypt": "^6.0.0",
-    "cookie-parser": "^1.4.6",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
     "express": "^5.1.0",
     "express-flash": "^0.0.2",
     "hbs": "^4.2.0",
